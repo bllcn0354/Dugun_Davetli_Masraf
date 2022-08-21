@@ -82,6 +82,10 @@ namespace Dugun_Davetli_Masraf
             this.lbl_davetli_sayisi = new DevExpress.XtraEditors.LabelControl();
             this.lbl_davetiye = new DevExpress.XtraEditors.LabelControl();
             this.btn_yenile = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_yardım = new DevExpress.XtraEditors.SimpleButton();
+            this.xtraTabPage7 = new DevExpress.XtraTab.XtraTabPage();
+            this.label1 = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.xtraTabPage1.SuspendLayout();
@@ -121,6 +125,7 @@ namespace Dugun_Davetli_Masraf
             this.groupControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txt_bakiye.Properties)).BeginInit();
             this.panel2.SuspendLayout();
+            this.xtraTabPage7.SuspendLayout();
             this.SuspendLayout();
             // 
             // xtraTabControl1
@@ -130,10 +135,10 @@ namespace Dugun_Davetli_Masraf
             | System.Windows.Forms.AnchorStyles.Right)));
             this.xtraTabControl1.Appearance.BackColor = System.Drawing.Color.DimGray;
             this.xtraTabControl1.Appearance.Options.UseBackColor = true;
-            this.xtraTabControl1.Location = new System.Drawing.Point(12, 12);
+            this.xtraTabControl1.Location = new System.Drawing.Point(12, 3);
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.SelectedTabPage = this.xtraTabPage1;
-            this.xtraTabControl1.Size = new System.Drawing.Size(631, 598);
+            this.xtraTabControl1.Size = new System.Drawing.Size(631, 607);
             this.xtraTabControl1.TabIndex = 0;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage1,
@@ -145,7 +150,7 @@ namespace Dugun_Davetli_Masraf
             // 
             this.xtraTabPage1.Controls.Add(this.gridControl2);
             this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(629, 573);
+            this.xtraTabPage1.Size = new System.Drawing.Size(629, 582);
             this.xtraTabPage1.Text = "Davetliler";
             // 
             // gridControl2
@@ -154,7 +159,7 @@ namespace Dugun_Davetli_Masraf
             this.gridControl2.Location = new System.Drawing.Point(0, 0);
             this.gridControl2.MainView = this.gridView2;
             this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(629, 573);
+            this.gridControl2.Size = new System.Drawing.Size(629, 582);
             this.gridControl2.TabIndex = 2;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -227,6 +232,7 @@ namespace Dugun_Davetli_Masraf
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btn_yardım);
             this.panel1.Controls.Add(this.xtraTabControl2);
             this.panel1.Controls.Add(this.xtraTabControl1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -242,15 +248,16 @@ namespace Dugun_Davetli_Masraf
             this.xtraTabControl2.Appearance.BackColor = System.Drawing.Color.DimGray;
             this.xtraTabControl2.Appearance.Options.UseBackColor = true;
             this.xtraTabControl2.HeaderOrientation = DevExpress.XtraTab.TabOrientation.Horizontal;
-            this.xtraTabControl2.Location = new System.Drawing.Point(649, 12);
+            this.xtraTabControl2.Location = new System.Drawing.Point(649, 3);
             this.xtraTabControl2.Name = "xtraTabControl2";
             this.xtraTabControl2.SelectedTabPage = this.xtraTabPage3;
-            this.xtraTabControl2.Size = new System.Drawing.Size(604, 598);
+            this.xtraTabControl2.Size = new System.Drawing.Size(604, 607);
             this.xtraTabControl2.TabIndex = 1;
             this.xtraTabControl2.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage3,
             this.xtraTabPage4,
-            this.xtraTabPage5});
+            this.xtraTabPage5,
+            this.xtraTabPage7});
             this.xtraTabControl2.SelectedPageChanged += new DevExpress.XtraTab.TabPageChangedEventHandler(this.xtraTabControl2_SelectedPageChanged);
             // 
             // xtraTabPage3
@@ -271,7 +278,7 @@ namespace Dugun_Davetli_Masraf
             this.xtraTabPage3.Controls.Add(this.labelControl1);
             this.xtraTabPage3.Controls.Add(this.txt_ad);
             this.xtraTabPage3.Name = "xtraTabPage3";
-            this.xtraTabPage3.Size = new System.Drawing.Size(602, 573);
+            this.xtraTabPage3.Size = new System.Drawing.Size(602, 582);
             this.xtraTabPage3.Text = "Davetli Kaydet";
             // 
             // btn_temizle
@@ -302,7 +309,7 @@ namespace Dugun_Davetli_Masraf
             this.panelControl1.Controls.Add(this.gridControl3);
             this.panelControl1.Location = new System.Drawing.Point(385, 24);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(214, 355);
+            this.panelControl1.Size = new System.Drawing.Size(214, 364);
             this.panelControl1.TabIndex = 15;
             this.panelControl1.Visible = false;
             // 
@@ -312,7 +319,7 @@ namespace Dugun_Davetli_Masraf
             this.gridControl3.Location = new System.Drawing.Point(2, 2);
             this.gridControl3.MainView = this.gridView3;
             this.gridControl3.Name = "gridControl3";
-            this.gridControl3.Size = new System.Drawing.Size(210, 351);
+            this.gridControl3.Size = new System.Drawing.Size(210, 360);
             this.gridControl3.TabIndex = 14;
             this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView3});
@@ -555,7 +562,7 @@ namespace Dugun_Davetli_Masraf
             this.xtraTabPage5.Controls.Add(this.btn_bsil);
             this.xtraTabPage5.Controls.Add(this.btn_bkaydet);
             this.xtraTabPage5.Name = "xtraTabPage5";
-            this.xtraTabPage5.Size = new System.Drawing.Size(602, 573);
+            this.xtraTabPage5.Size = new System.Drawing.Size(602, 582);
             this.xtraTabPage5.Text = "Bakiye Kaydet";
             // 
             // groupControl4
@@ -708,6 +715,50 @@ namespace Dugun_Davetli_Masraf
             this.btn_yenile.Text = "Yenile";
             this.btn_yenile.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
+            // btn_yardım
+            // 
+            this.btn_yardım.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_yardım.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.btn_yardım.Location = new System.Drawing.Point(1167, 3);
+            this.btn_yardım.Name = "btn_yardım";
+            this.btn_yardım.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
+            this.btn_yardım.Size = new System.Drawing.Size(86, 25);
+            this.btn_yardım.TabIndex = 17;
+            this.btn_yardım.Text = "Yardım";
+            this.btn_yardım.Click += new System.EventHandler(this.btn_yardım_Click);
+            // 
+            // xtraTabPage7
+            // 
+            this.xtraTabPage7.Controls.Add(this.linkLabel1);
+            this.xtraTabPage7.Controls.Add(this.label1);
+            this.xtraTabPage7.Name = "xtraTabPage7";
+            this.xtraTabPage7.PageVisible = false;
+            this.xtraTabPage7.Size = new System.Drawing.Size(602, 582);
+            this.xtraTabPage7.Text = "Yardım";
+            this.xtraTabPage7.Click += new System.EventHandler(this.xtraTabPage7_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label1.ForeColor = System.Drawing.Color.SteelBlue;
+            this.label1.Location = new System.Drawing.Point(12, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(139, 76);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "KISAYOLLAR \r\n    F1 : GÜNCELLE\r\n    F2 : TEMİZLE\r\n    F5 : KAYDET";
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(328, 21);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(47, 13);
+            this.linkLabel1.TabIndex = 1;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Youtube";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
             // frm_anasayfa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -716,8 +767,8 @@ namespace Dugun_Davetli_Masraf
             this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frm_anasayfa";
-            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DDM";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -761,6 +812,8 @@ namespace Dugun_Davetli_Masraf
             this.groupControl4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txt_bakiye.Properties)).EndInit();
             this.panel2.ResumeLayout(false);
+            this.xtraTabPage7.ResumeLayout(false);
+            this.xtraTabPage7.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -819,6 +872,10 @@ namespace Dugun_Davetli_Masraf
         private DevExpress.XtraEditors.TextEdit txt_bakiye;
         private DevExpress.XtraEditors.SimpleButton btn_bsil;
         private DevExpress.XtraEditors.SimpleButton btn_bkaydet;
+        private DevExpress.XtraEditors.SimpleButton btn_yardım;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage7;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }
 

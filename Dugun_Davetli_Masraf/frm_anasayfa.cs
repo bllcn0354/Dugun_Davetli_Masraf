@@ -552,6 +552,10 @@ namespace Dugun_Davetli_Masraf
             {
                 xtraTabControl2.SelectedTabPage = xtraTabPage5;
             }
+            if (izin_ == false)
+            {
+                xtraTabPage7.PageVisible = false;
+            }
         }
 
         private void xtraTabControl2_SelectedPageChanged(object sender, DevExpress.XtraTab.TabPageChangedEventArgs e)
@@ -568,6 +572,11 @@ namespace Dugun_Davetli_Masraf
             {
                 xtraTabControl1.SelectedTabPage = xtraTabPage6;
             }
+            if (izin_==false)
+            {
+                xtraTabPage7.PageVisible = false;
+            }
+            
         }
 
         private void txt_mucret_EditValueChanged(object sender, EventArgs e)
@@ -811,6 +820,24 @@ namespace Dugun_Davetli_Masraf
             {
                 btn_bsil.PerformClick();
             }
+        }
+        bool izin_ = false;
+        private void btn_yardım_Click(object sender, EventArgs e)
+        {
+            xtraTabPage7.PageVisible = true;
+            izin_ = true;
+            xtraTabControl2.SelectedTabPage = xtraTabPage7;
+            izin_ = false;
+        }
+
+        private void xtraTabPage7_Click(object sender, EventArgs e)
+        {
+            //Process.Start("https://www.youtube.com/channel/UCIRx9CWQCMgaM20M11OWvew?sub_confirmation=1");
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("https://www.youtube.com/channel/UCIRx9CWQCMgaM20M11OWvew?sub_confirmation=1");
         }
 
         //ayselin kayınbabası
