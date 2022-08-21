@@ -1,7 +1,7 @@
 ﻿
 namespace Dugun_Davetli_Masraf
 {
-    partial class Form1
+    partial class frm_anasayfa
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace Dugun_Davetli_Masraf
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_anasayfa));
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
             this.gridControl2 = new DevExpress.XtraGrid.GridControl();
@@ -37,6 +37,9 @@ namespace Dugun_Davetli_Masraf
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.xtraTabPage6 = new DevExpress.XtraTab.XtraTabPage();
+            this.gridControl4 = new DevExpress.XtraGrid.GridControl();
+            this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.xtraTabControl2 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage3 = new DevExpress.XtraTab.XtraTabPage();
@@ -67,14 +70,18 @@ namespace Dugun_Davetli_Masraf
             this.txt_mucret = new DevExpress.XtraEditors.TextEdit();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.cmb_mtur = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.xtraTabPage5 = new DevExpress.XtraTab.XtraTabPage();
+            this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
+            this.txt_bakiye = new DevExpress.XtraEditors.TextEdit();
+            this.btn_bsil = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_bkaydet = new DevExpress.XtraEditors.SimpleButton();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lbl_net = new DevExpress.XtraEditors.LabelControl();
+            this.lbl_bakiye = new DevExpress.XtraEditors.LabelControl();
             this.lbl_masraf_toplam = new DevExpress.XtraEditors.LabelControl();
             this.lbl_davetli_sayisi = new DevExpress.XtraEditors.LabelControl();
             this.lbl_davetiye = new DevExpress.XtraEditors.LabelControl();
             this.btn_yenile = new DevExpress.XtraEditors.SimpleButton();
-            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
-            this.xtraTabPage5 = new DevExpress.XtraTab.XtraTabPage();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.xtraTabPage1.SuspendLayout();
@@ -83,6 +90,9 @@ namespace Dugun_Davetli_Masraf
             this.xtraTabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            this.xtraTabPage6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView4)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl2)).BeginInit();
             this.xtraTabControl2.SuspendLayout();
@@ -106,6 +116,10 @@ namespace Dugun_Davetli_Masraf
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_mtur.Properties)).BeginInit();
+            this.xtraTabPage5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).BeginInit();
+            this.groupControl4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_bakiye.Properties)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -123,7 +137,8 @@ namespace Dugun_Davetli_Masraf
             this.xtraTabControl1.TabIndex = 0;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage1,
-            this.xtraTabPage2});
+            this.xtraTabPage2,
+            this.xtraTabPage6});
             this.xtraTabControl1.SelectedPageChanged += new DevExpress.XtraTab.TabPageChangedEventHandler(this.xtraTabControl1_SelectedPageChanged);
             // 
             // xtraTabPage1
@@ -175,6 +190,7 @@ namespace Dugun_Davetli_Masraf
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             this.gridControl1.Click += new System.EventHandler(this.gridControl1_Click);
+            this.gridControl1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridControl1_KeyDown);
             // 
             // gridView1
             // 
@@ -182,6 +198,32 @@ namespace Dugun_Davetli_Masraf
             this.gridView1.GroupPanelText = "Masraf Kayıtları";
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsFind.FindNullPrompt = "Ara";
+            // 
+            // xtraTabPage6
+            // 
+            this.xtraTabPage6.Controls.Add(this.gridControl4);
+            this.xtraTabPage6.Name = "xtraTabPage6";
+            this.xtraTabPage6.Size = new System.Drawing.Size(629, 573);
+            this.xtraTabPage6.Text = "Bakiye";
+            // 
+            // gridControl4
+            // 
+            this.gridControl4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl4.Location = new System.Drawing.Point(0, 0);
+            this.gridControl4.MainView = this.gridView4;
+            this.gridControl4.Name = "gridControl4";
+            this.gridControl4.Size = new System.Drawing.Size(629, 573);
+            this.gridControl4.TabIndex = 2;
+            this.gridControl4.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView4});
+            this.gridControl4.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridControl4_KeyDown);
+            // 
+            // gridView4
+            // 
+            this.gridView4.GridControl = this.gridControl4;
+            this.gridView4.GroupPanelText = "Bakiye Kayıtları";
+            this.gridView4.Name = "gridView4";
+            this.gridView4.OptionsFind.FindNullPrompt = "Ara";
             // 
             // panel1
             // 
@@ -311,6 +353,7 @@ namespace Dugun_Davetli_Masraf
             this.cmb_sayi.Size = new System.Drawing.Size(249, 20);
             this.cmb_sayi.TabIndex = 2;
             this.cmb_sayi.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmb_sayi_KeyDown);
+            this.cmb_sayi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmb_sayi_KeyPress);
             // 
             // cmb_nerden
             // 
@@ -506,10 +549,64 @@ namespace Dugun_Davetli_Masraf
             this.cmb_mtur.TabIndex = 11;
             this.cmb_mtur.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmb_mtur_KeyDown);
             // 
+            // xtraTabPage5
+            // 
+            this.xtraTabPage5.Controls.Add(this.groupControl4);
+            this.xtraTabPage5.Controls.Add(this.btn_bsil);
+            this.xtraTabPage5.Controls.Add(this.btn_bkaydet);
+            this.xtraTabPage5.Name = "xtraTabPage5";
+            this.xtraTabPage5.Size = new System.Drawing.Size(602, 573);
+            this.xtraTabPage5.Text = "Bakiye Kaydet";
+            // 
+            // groupControl4
+            // 
+            this.groupControl4.Appearance.BackColor = System.Drawing.Color.Green;
+            this.groupControl4.Appearance.Options.UseBackColor = true;
+            this.groupControl4.AppearanceCaption.BackColor = System.Drawing.Color.Red;
+            this.groupControl4.AppearanceCaption.Options.UseBackColor = true;
+            this.groupControl4.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.groupControl4.CaptionImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("groupControl4.CaptionImageOptions.SvgImage")));
+            this.groupControl4.Controls.Add(this.txt_bakiye);
+            this.groupControl4.GroupStyle = DevExpress.Utils.GroupStyle.Light;
+            this.groupControl4.Location = new System.Drawing.Point(3, 12);
+            this.groupControl4.Name = "groupControl4";
+            this.groupControl4.Size = new System.Drawing.Size(181, 73);
+            this.groupControl4.TabIndex = 20;
+            this.groupControl4.Text = "Bakiye Ücreti";
+            // 
+            // txt_bakiye
+            // 
+            this.txt_bakiye.Location = new System.Drawing.Point(5, 36);
+            this.txt_bakiye.Name = "txt_bakiye";
+            this.txt_bakiye.Size = new System.Drawing.Size(171, 20);
+            this.txt_bakiye.TabIndex = 12;
+            this.txt_bakiye.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_bakiye_KeyDown);
+            this.txt_bakiye.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_bakiye_KeyPress);
+            // 
+            // btn_bsil
+            // 
+            this.btn_bsil.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_bsil.ImageOptions.SvgImage")));
+            this.btn_bsil.Location = new System.Drawing.Point(98, 91);
+            this.btn_bsil.Name = "btn_bsil";
+            this.btn_bsil.Size = new System.Drawing.Size(75, 39);
+            this.btn_bsil.TabIndex = 19;
+            this.btn_bsil.Text = "Sil";
+            this.btn_bsil.Click += new System.EventHandler(this.btn_bsil_Click);
+            // 
+            // btn_bkaydet
+            // 
+            this.btn_bkaydet.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_bkaydet.ImageOptions.SvgImage")));
+            this.btn_bkaydet.Location = new System.Drawing.Point(17, 91);
+            this.btn_bkaydet.Name = "btn_bkaydet";
+            this.btn_bkaydet.Size = new System.Drawing.Size(75, 39);
+            this.btn_bkaydet.TabIndex = 17;
+            this.btn_bkaydet.Text = "Kaydet";
+            this.btn_bkaydet.Click += new System.EventHandler(this.btn_bkaydet_Click);
+            // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.labelControl7);
-            this.panel2.Controls.Add(this.labelControl6);
+            this.panel2.Controls.Add(this.lbl_net);
+            this.panel2.Controls.Add(this.lbl_bakiye);
             this.panel2.Controls.Add(this.lbl_masraf_toplam);
             this.panel2.Controls.Add(this.lbl_davetli_sayisi);
             this.panel2.Controls.Add(this.lbl_davetiye);
@@ -520,11 +617,43 @@ namespace Dugun_Davetli_Masraf
             this.panel2.Size = new System.Drawing.Size(1264, 53);
             this.panel2.TabIndex = 2;
             // 
+            // lbl_net
+            // 
+            this.lbl_net.Appearance.BackColor = System.Drawing.Color.LightGray;
+            this.lbl_net.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_net.Appearance.ForeColor = System.Drawing.Color.White;
+            this.lbl_net.Appearance.Options.UseBackColor = true;
+            this.lbl_net.Appearance.Options.UseFont = true;
+            this.lbl_net.Appearance.Options.UseForeColor = true;
+            this.lbl_net.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lbl_net.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.lbl_net.Location = new System.Drawing.Point(1010, 6);
+            this.lbl_net.Name = "lbl_net";
+            this.lbl_net.Size = new System.Drawing.Size(220, 35);
+            this.lbl_net.TabIndex = 11;
+            this.lbl_net.Text = "Net";
+            // 
+            // lbl_bakiye
+            // 
+            this.lbl_bakiye.Appearance.BackColor = System.Drawing.Color.Silver;
+            this.lbl_bakiye.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_bakiye.Appearance.ForeColor = System.Drawing.Color.Green;
+            this.lbl_bakiye.Appearance.Options.UseBackColor = true;
+            this.lbl_bakiye.Appearance.Options.UseFont = true;
+            this.lbl_bakiye.Appearance.Options.UseForeColor = true;
+            this.lbl_bakiye.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lbl_bakiye.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.lbl_bakiye.Location = new System.Drawing.Point(784, 6);
+            this.lbl_bakiye.Name = "lbl_bakiye";
+            this.lbl_bakiye.Size = new System.Drawing.Size(220, 35);
+            this.lbl_bakiye.TabIndex = 10;
+            this.lbl_bakiye.Text = "Toplam Bakiye";
+            // 
             // lbl_masraf_toplam
             // 
             this.lbl_masraf_toplam.Appearance.BackColor = System.Drawing.Color.DarkGray;
-            this.lbl_masraf_toplam.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lbl_masraf_toplam.Appearance.ForeColor = System.Drawing.Color.White;
+            this.lbl_masraf_toplam.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_masraf_toplam.Appearance.ForeColor = System.Drawing.Color.Red;
             this.lbl_masraf_toplam.Appearance.Options.UseBackColor = true;
             this.lbl_masraf_toplam.Appearance.Options.UseFont = true;
             this.lbl_masraf_toplam.Appearance.Options.UseForeColor = true;
@@ -539,7 +668,7 @@ namespace Dugun_Davetli_Masraf
             // lbl_davetli_sayisi
             // 
             this.lbl_davetli_sayisi.Appearance.BackColor = System.Drawing.Color.Gray;
-            this.lbl_davetli_sayisi.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_davetli_sayisi.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lbl_davetli_sayisi.Appearance.ForeColor = System.Drawing.Color.White;
             this.lbl_davetli_sayisi.Appearance.Options.UseBackColor = true;
             this.lbl_davetli_sayisi.Appearance.Options.UseFont = true;
@@ -555,7 +684,7 @@ namespace Dugun_Davetli_Masraf
             // lbl_davetiye
             // 
             this.lbl_davetiye.Appearance.BackColor = System.Drawing.Color.DimGray;
-            this.lbl_davetiye.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_davetiye.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lbl_davetiye.Appearance.ForeColor = System.Drawing.Color.White;
             this.lbl_davetiye.Appearance.Options.UseBackColor = true;
             this.lbl_davetiye.Appearance.Options.UseFont = true;
@@ -571,52 +700,15 @@ namespace Dugun_Davetli_Masraf
             // btn_yenile
             // 
             this.btn_yenile.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_yenile.ImageOptions.SvgImage")));
-            this.btn_yenile.Location = new System.Drawing.Point(13, 6);
+            this.btn_yenile.Location = new System.Drawing.Point(12, 6);
             this.btn_yenile.Name = "btn_yenile";
-            this.btn_yenile.Size = new System.Drawing.Size(75, 35);
+            this.btn_yenile.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
+            this.btn_yenile.Size = new System.Drawing.Size(88, 35);
             this.btn_yenile.TabIndex = 8;
             this.btn_yenile.Text = "Yenile";
             this.btn_yenile.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
-            // labelControl6
-            // 
-            this.labelControl6.Appearance.BackColor = System.Drawing.Color.LimeGreen;
-            this.labelControl6.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.labelControl6.Appearance.ForeColor = System.Drawing.Color.White;
-            this.labelControl6.Appearance.Options.UseBackColor = true;
-            this.labelControl6.Appearance.Options.UseFont = true;
-            this.labelControl6.Appearance.Options.UseForeColor = true;
-            this.labelControl6.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl6.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.labelControl6.Location = new System.Drawing.Point(784, 6);
-            this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(220, 35);
-            this.labelControl6.TabIndex = 10;
-            this.labelControl6.Text = "Toplam Bakiye";
-            // 
-            // labelControl7
-            // 
-            this.labelControl7.Appearance.BackColor = System.Drawing.Color.DarkRed;
-            this.labelControl7.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.labelControl7.Appearance.ForeColor = System.Drawing.Color.White;
-            this.labelControl7.Appearance.Options.UseBackColor = true;
-            this.labelControl7.Appearance.Options.UseFont = true;
-            this.labelControl7.Appearance.Options.UseForeColor = true;
-            this.labelControl7.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl7.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.labelControl7.Location = new System.Drawing.Point(1010, 6);
-            this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(220, 35);
-            this.labelControl7.TabIndex = 11;
-            this.labelControl7.Text = "Net";
-            // 
-            // xtraTabPage5
-            // 
-            this.xtraTabPage5.Name = "xtraTabPage5";
-            this.xtraTabPage5.Size = new System.Drawing.Size(602, 573);
-            this.xtraTabPage5.Text = "Bakiye Kaydet";
-            // 
-            // Form1
+            // frm_anasayfa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -624,10 +716,10 @@ namespace Dugun_Davetli_Masraf
             this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
-            this.Name = "Form1";
+            this.Name = "frm_anasayfa";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Düğün Davetli Masraf Programı";
+            this.Text = "DDM";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
             this.xtraTabControl1.ResumeLayout(false);
@@ -637,6 +729,9 @@ namespace Dugun_Davetli_Masraf
             this.xtraTabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            this.xtraTabPage6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView4)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl2)).EndInit();
             this.xtraTabControl2.ResumeLayout(false);
@@ -661,6 +756,10 @@ namespace Dugun_Davetli_Masraf
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cmb_mtur.Properties)).EndInit();
+            this.xtraTabPage5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).EndInit();
+            this.groupControl4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txt_bakiye.Properties)).EndInit();
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -710,9 +809,16 @@ namespace Dugun_Davetli_Masraf
         private DevExpress.XtraEditors.ComboBoxEdit cmb_mtur;
         private DevExpress.XtraEditors.TextEdit txt_mbilgi;
         private DevExpress.XtraEditors.TextEdit txt_mucret;
-        private DevExpress.XtraEditors.LabelControl labelControl6;
+        private DevExpress.XtraEditors.LabelControl lbl_bakiye;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage5;
-        private DevExpress.XtraEditors.LabelControl labelControl7;
+        private DevExpress.XtraEditors.LabelControl lbl_net;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage6;
+        private DevExpress.XtraGrid.GridControl gridControl4;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView4;
+        private DevExpress.XtraEditors.GroupControl groupControl4;
+        private DevExpress.XtraEditors.TextEdit txt_bakiye;
+        private DevExpress.XtraEditors.SimpleButton btn_bsil;
+        private DevExpress.XtraEditors.SimpleButton btn_bkaydet;
     }
 }
 

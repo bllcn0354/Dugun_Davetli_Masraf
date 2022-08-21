@@ -72,7 +72,6 @@ C:\Projeler\Dugun_Davetli_Masraf\Dugun_Davetli_Masraf\bin\Debug\de\DevExpress.Of
 C:\Projeler\Dugun_Davetli_Masraf\Dugun_Davetli_Masraf\bin\Debug\es\DevExpress.Office.v22.1.Core.resources.dll
 C:\Projeler\Dugun_Davetli_Masraf\Dugun_Davetli_Masraf\bin\Debug\ja\DevExpress.Office.v22.1.Core.resources.dll
 C:\Projeler\Dugun_Davetli_Masraf\Dugun_Davetli_Masraf\obj\Debug\Dugun_Davetli_Masraf.csproj.AssemblyReference.cache
-C:\Projeler\Dugun_Davetli_Masraf\Dugun_Davetli_Masraf\obj\Debug\Dugun_Davetli_Masraf.Form1.resources
 C:\Projeler\Dugun_Davetli_Masraf\Dugun_Davetli_Masraf\obj\Debug\Dugun_Davetli_Masraf.Properties.Resources.resources
 C:\Projeler\Dugun_Davetli_Masraf\Dugun_Davetli_Masraf\obj\Debug\Dugun_Davetli_Masraf.csproj.GenerateResource.cache
 C:\Projeler\Dugun_Davetli_Masraf\Dugun_Davetli_Masraf\obj\Debug\Dugun_Davetli_Masraf.exe.licenses
@@ -80,3 +79,4 @@ C:\Projeler\Dugun_Davetli_Masraf\Dugun_Davetli_Masraf\obj\Debug\Dugun_Davetli_Ma
 C:\Projeler\Dugun_Davetli_Masraf\Dugun_Davetli_Masraf\obj\Debug\Dugun_Davetli_Masraf.csproj.CopyComplete
 C:\Projeler\Dugun_Davetli_Masraf\Dugun_Davetli_Masraf\obj\Debug\Dugun_Davetli_Masraf.exe
 C:\Projeler\Dugun_Davetli_Masraf\Dugun_Davetli_Masraf\obj\Debug\Dugun_Davetli_Masraf.pdb
+C:\Projeler\Dugun_Davetli_Masraf\Dugun_Davetli_Masraf\obj\Debug\Dugun_Davetli_Masraf.frm_anasayfa.resources

@@ -14,9 +14,9 @@ using System.Windows.Forms;
 
 namespace Dugun_Davetli_Masraf
 {
-    public partial class Form1 : Form
+    public partial class frm_anasayfa : Form
     {
-        public Form1()
+        public frm_anasayfa()
         {
             InitializeComponent();
         }
@@ -52,6 +52,11 @@ namespace Dugun_Davetli_Masraf
             ", [m_turu][nvarchar](100)  null, [m_bilgi][nvarchar](100)  null , [m_ucret][float] null , " +
             ") ; ";
 
+            //tbl_bakiye////////////////////////////////////////////////////////////
+            sq = "CREATE TABLE [dbo].[tbl_bakiye]( " +
+            "[b_id][int] IDENTITY(1,1) NOT NULL CONSTRAINT PK_tbl_bakiye PRIMARY KEY (b_id) " +
+            ", [b_ucret][float] not null ) ; " ;
+
             i_.SQL_Create_Table(sq, false);
 
             for (int i = 0; i < 50; i++)
@@ -82,7 +87,7 @@ namespace Dugun_Davetli_Masraf
 
             davetligetir();
 
-            Font F = new Font("Tahoma", 10, FontStyle.Bold);
+            Font F = new Font("Tahoma", 8, FontStyle.Regular);
            
             i_.sutisdeg(gridView2, "ID", "d_id", 0, true, true, 0, F, 10);
             i_.sutisdeg(gridView2, "Adı", "d_adi", 1, true, true, 0, F, 10);
@@ -91,14 +96,22 @@ namespace Dugun_Davetli_Masraf
             i_.sutisdeg(gridView2, "Yakınlık", "d_yakinlik", 4, false, true, 0, F, 10);
             i_.sutisdeg(gridView2, "Nereden", "d_nereden", 5, true, true, 0, F, 10);
 
-            masrafgetir();
+            bakiyehesapla();
 
-            Font F1 = new Font("Tahoma", 12, FontStyle.Bold);
+            Font F1 = new Font("Tahoma", 10, FontStyle.Bold);
 
-            i_.sutisdeg(gridView1, "ID", "m_id", 0, true, true, 0, F1, 25);
+            i_.sutisdeg(gridView4, "ID", "b_id", 0, false, true, 0, F1, 25);
+            i_.sutisdeg(gridView4, "Ücret", "b_ucret", 1, true, true, 0, F1, 25);            
+
+            i_.sutisdeg(gridView1, "ID", "m_id", 0, false, true, 0, F1, 25);
             i_.sutisdeg(gridView1, "Tür", "m_turu", 1, true, true, 0, F1, 25);
             i_.sutisdeg(gridView1, "Bilgi", "m_bilgi", 2, true, true, 0, F1, 25);
             i_.sutisdeg(gridView1, "Ücret", "m_ucret", 3, true, true, 0, F1, 25);
+
+
+            btn_yenile.PerformClick();
+
+           
         }
 
         private void simpleButton2_Click(object sender, EventArgs e)
@@ -122,7 +135,7 @@ namespace Dugun_Davetli_Masraf
             DataTable dt1 = new DataTable();
             dt1 = (DataTable)gridControl2.DataSource;
             gridView2.FocusedColumn = gridView2.Columns[1];
-            Thread.Sleep(1000);
+            Thread.Sleep(200);
             gridView2.FocusedRowHandle = dt1.Rows.Count-1;
             gridView2.FocusRectStyle = DrawFocusRectStyle.RowFocus;
             gridView2.ShowEditor();
@@ -165,7 +178,7 @@ namespace Dugun_Davetli_Masraf
         }
 
 
-        private void masrafgetir()
+        private double masrafgetir()
         {
             DataTable dt = new DataTable();
             string sq;            
@@ -177,7 +190,54 @@ namespace Dugun_Davetli_Masraf
             {
                 masraf += i_.dtcek_double(dt,i,"m_ucret");
             }
-            lbl_masraf_toplam.Text = " Toplam Masraf: " + masraf.ToString();
+            lbl_masraf_toplam.Text = " Toplam Masraf: " + masraf.ToString() + " TL";
+            return masraf;
+        }
+
+        private double bakiyehesapla()
+        {
+            DataTable dt = new DataTable();
+            string sq;
+            sq = "select * from tbl_bakiye";
+            i_.SQL_Cek(sq, dt, false);
+            gridControl4.DataSource = dt;
+            double bakiye = 0;
+            double net;
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                bakiye += i_.dtcek_double(dt, i, "b_ucret");
+            }
+
+            net = (bakiye - masrafgetir());
+
+            lbl_bakiye.Text = " Toplam Bakiye: " + bakiye.ToString() + " TL";
+            lbl_net.Text = " Net: " + net.ToString() + " TL";
+
+
+
+            if (net <= -1)
+            {
+                lbl_net.Appearance.BackColor = Color.DarkRed;
+                lbl_net.Appearance.ForeColor = Color.White;
+            }
+            else
+            {
+                lbl_net.Appearance.BackColor = Color.Green;
+                lbl_net.Appearance.ForeColor = Color.White;
+            }
+            if (net == 0)
+            {
+                lbl_net.Appearance.BackColor = Color.LightGray;
+                lbl_net.Appearance.ForeColor = Color.FromArgb(64,64,64);
+            }
+
+            return bakiye;
+
+
+
+
+           
+
         }
 
         private void gridControl2_DoubleClick(object sender, EventArgs e)
@@ -211,7 +271,7 @@ namespace Dugun_Davetli_Masraf
                 }
                 davetligetir();
                 gridView2.FocusedColumn = gridView2.Columns[1];
-                Thread.Sleep(1000);
+                Thread.Sleep(200);
                 gridView2.FocusedRowHandle = secilisatir;
                 gridView2.FocusRectStyle = DrawFocusRectStyle.RowFocus;
                 gridView2.ShowEditor();
@@ -232,7 +292,17 @@ namespace Dugun_Davetli_Masraf
         private void simpleButton1_Click(object sender, EventArgs e)
         {
             davetligetir();
-            simpleButton5_Click(sender,e);
+            bakiyehesapla();
+            //simpleButton5_Click(sender,e);
+            txt_ad.Text = "";
+            txt_soyad.Text = "";
+            txt_yakinlik.Text = "";
+            cmb_nerden.Text = "";
+            cmb_sayi.Text = "0";
+            cmb_mtur.Text = "";
+            txt_mbilgi.Text = "";
+            txt_mucret.Text = "0";
+            txt_bakiye.Text = "0";
         }
 
         private void txt_ad_EditValueChanged(object sender, EventArgs e)
@@ -304,7 +374,7 @@ namespace Dugun_Davetli_Masraf
                 }
                 davetligetir();
                 gridView2.FocusedColumn = gridView2.Columns[1];
-                Thread.Sleep(1000);
+                Thread.Sleep(200);
                 gridView2.FocusedRowHandle = secilisatir;
                 gridView2.FocusRectStyle = DrawFocusRectStyle.RowFocus;
                 gridView2.ShowEditor();
@@ -335,6 +405,7 @@ namespace Dugun_Davetli_Masraf
             cmb_mtur.Text = "";
             txt_mbilgi.Text = "";
             txt_mucret.Text = "0";
+            txt_bakiye.Text = "0";
         }
 
         private void txt_ad_KeyDown(object sender, KeyEventArgs e)
@@ -450,11 +521,11 @@ namespace Dugun_Davetli_Masraf
                 i_.SQL_Yurut(sq, false);
 
 
-            masrafgetir();
+            bakiyehesapla();
             DataTable dt1 = new DataTable();
             dt1 = (DataTable)gridControl1.DataSource;
             gridView1.FocusedColumn = gridView1.Columns[1];
-            Thread.Sleep(1000);
+            Thread.Sleep(200);
             gridView1.FocusedRowHandle = dt1.Rows.Count - 1;
             gridView1.FocusRectStyle = DrawFocusRectStyle.RowFocus;
             gridView1.ShowEditor();
@@ -477,6 +548,10 @@ namespace Dugun_Davetli_Masraf
             {
                 xtraTabControl2.SelectedTabPage = xtraTabPage4;
             }
+            if (xtraTabControl1.SelectedTabPage == xtraTabPage6)
+            {
+                xtraTabControl2.SelectedTabPage = xtraTabPage5;
+            }
         }
 
         private void xtraTabControl2_SelectedPageChanged(object sender, DevExpress.XtraTab.TabPageChangedEventArgs e)
@@ -488,6 +563,10 @@ namespace Dugun_Davetli_Masraf
             if (xtraTabControl2.SelectedTabPage == xtraTabPage4)
             {
                 xtraTabControl1.SelectedTabPage = xtraTabPage2;
+            }
+            if (xtraTabControl2.SelectedTabPage == xtraTabPage5)
+            {
+                xtraTabControl1.SelectedTabPage = xtraTabPage6;
             }
         }
 
@@ -515,7 +594,7 @@ namespace Dugun_Davetli_Masraf
             }
             if (e.KeyCode == Keys.F2)
             {
-                btn_temizle.PerformClick();
+                btn_yenile.PerformClick();
             }
             if (e.KeyCode == Keys.Enter)
             {
@@ -535,7 +614,7 @@ namespace Dugun_Davetli_Masraf
             }
             if (e.KeyCode == Keys.F2)
             {
-                btn_temizle.PerformClick();
+                btn_yenile.PerformClick();
             }
             if (e.KeyCode == Keys.Enter)
             {
@@ -555,7 +634,7 @@ namespace Dugun_Davetli_Masraf
             }
             if (e.KeyCode == Keys.F2)
             {
-                btn_temizle.PerformClick();
+                btn_yenile.PerformClick();
             }
             if (e.KeyCode == Keys.Enter)
             {
@@ -598,9 +677,9 @@ namespace Dugun_Davetli_Masraf
                 {
                     MessageBox.Show("Güncelleme Başarısız", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                masrafgetir();
+                bakiyehesapla();
                 gridView1.FocusedColumn = gridView1.Columns[1];
-                Thread.Sleep(1000);
+                Thread.Sleep(200);
                 gridView1.FocusedRowHandle = secilisatir;
                 gridView1.FocusRectStyle = DrawFocusRectStyle.RowFocus;
                 gridView1.ShowEditor();
@@ -615,7 +694,7 @@ namespace Dugun_Davetli_Masraf
             DataTable dt = new DataTable();
             dt = (DataTable)gridControl1.DataSource;
             string sq = "delete from tbl_masraf where m_id=" + i_.dtcek_Int(dt, gridView1.FocusedRowHandle, "m_id") + "";
-            DialogResult = MessageBox.Show(i_.dtcek_String(dt, gridView1.FocusedRowHandle, "m_id") + " bilgili masraf silinsin mi?", "Uyarı", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            DialogResult = MessageBox.Show(i_.dtcek_String(dt, gridView1.FocusedRowHandle, "m_bilgi") + " bilgili masraf silinsin mi?", "Uyarı", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (DialogResult == DialogResult.Yes)
             {
                 if (i_.SQL_Yurut(sq, false))
@@ -626,9 +705,9 @@ namespace Dugun_Davetli_Masraf
                 {
                     MessageBox.Show("Silme Başarısız", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                masrafgetir();
+                bakiyehesapla();
                 gridView1.FocusedColumn = gridView1.Columns[1];
-                Thread.Sleep(1000);
+                Thread.Sleep(200);
                 gridView1.FocusedRowHandle = secilisatir;
                 gridView1.FocusRectStyle = DrawFocusRectStyle.RowFocus;
                 gridView1.ShowEditor();
@@ -636,6 +715,102 @@ namespace Dugun_Davetli_Masraf
             }
 
             
+        }
+
+        private void btn_bsil_Click(object sender, EventArgs e)
+        {
+            int secilisatir = gridView4.FocusedRowHandle - 1;
+            DataTable dt = new DataTable();
+            dt = (DataTable)gridControl4.DataSource;
+            string sq = "delete from tbl_bakiye where b_id=" + i_.dtcek_Int(dt, gridView4.FocusedRowHandle, "b_id") + "";
+           
+                if (i_.SQL_Yurut(sq, false))
+                {
+                    //MessageBox.Show("Silme Başarılı", "Bildirim", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Silme Başarısız", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            bakiyehesapla();
+            gridView4.FocusedColumn = gridView4.Columns[1];
+            Thread.Sleep(200);
+            gridView4.FocusedRowHandle = secilisatir;
+            gridView4.FocusRectStyle = DrawFocusRectStyle.RowFocus;
+            gridView4.ShowEditor();
+            gridView4.SelectRow(secilisatir);
+            }
+
+        private void btn_bkaydet_Click(object sender, EventArgs e)
+        {
+            if (i_.txt_ara_int(txt_bakiye.Text, ".") > 1)
+            {
+                txt_bakiye.Text = "0";
+                Thread.Sleep(1000);
+                MessageBox.Show("Sadece para birimi yazabilirsiniz!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            txt_bakiye.Text = txt_bakiye.Text.Replace(",", ".");
+
+
+
+            string sq;
+            sq = "insert into tbl_bakiye (b_ucret)" +
+           "values (" + txt_bakiye.Text + ")";
+            i_.SQL_Yurut(sq, false);
+
+
+            bakiyehesapla();
+            DataTable dt1 = new DataTable();
+            dt1 = (DataTable)gridControl4.DataSource;
+            gridView4.FocusedColumn = gridView4.Columns[1];
+            Thread.Sleep(200);
+            gridView4.FocusedRowHandle = dt1.Rows.Count - 1;
+            gridView4.FocusRectStyle = DrawFocusRectStyle.RowFocus;
+            gridView4.ShowEditor();
+            gridView4.SelectRow(dt1.Rows.Count - 1);
+        }
+
+        private void txt_bakiye_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '.' && e.KeyChar != '-' && e.KeyChar != '+';
+        }
+
+        private void txt_bakiye_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F5)
+            {
+                btn_bkaydet.PerformClick();
+            }
+            if (e.KeyCode == Keys.F2)
+            {
+                btn_yenile.PerformClick();
+            }
+            if (e.KeyCode == Keys.Enter)
+            {
+                btn_bkaydet.PerformClick();
+            }           
+        }
+
+        private void cmb_sayi_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void gridControl1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+                btn_msil.PerformClick();
+            }
+        }
+
+        private void gridControl4_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+                btn_bsil.PerformClick();
+            }
         }
 
         //ayselin kayınbabası
