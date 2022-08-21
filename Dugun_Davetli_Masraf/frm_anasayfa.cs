@@ -52,6 +52,8 @@ namespace Dugun_Davetli_Masraf
             ", [m_turu][nvarchar](100)  null, [m_bilgi][nvarchar](100)  null , [m_ucret][float] null , " +
             ") ; ";
 
+            i_.SQL_Create_Table(sq, false);
+
             //tbl_bakiye////////////////////////////////////////////////////////////
             sq = "CREATE TABLE [dbo].[tbl_bakiye]( " +
             "[b_id][int] IDENTITY(1,1) NOT NULL CONSTRAINT PK_tbl_bakiye PRIMARY KEY (b_id) " +
