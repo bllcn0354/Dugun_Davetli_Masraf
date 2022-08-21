@@ -73,6 +73,8 @@ namespace Dugun_Davetli_Masraf
             this.lbl_davetiye = new DevExpress.XtraEditors.LabelControl();
             this.btn_yenile = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
+            this.xtraTabPage5 = new DevExpress.XtraTab.XtraTabPage();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.xtraTabPage1.SuspendLayout();
@@ -205,7 +207,8 @@ namespace Dugun_Davetli_Masraf
             this.xtraTabControl2.TabIndex = 1;
             this.xtraTabControl2.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage3,
-            this.xtraTabPage4});
+            this.xtraTabPage4,
+            this.xtraTabPage5});
             this.xtraTabControl2.SelectedPageChanged += new DevExpress.XtraTab.TabPageChangedEventHandler(this.xtraTabControl2_SelectedPageChanged);
             // 
             // xtraTabPage3
@@ -505,6 +508,7 @@ namespace Dugun_Davetli_Masraf
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.labelControl7);
             this.panel2.Controls.Add(this.labelControl6);
             this.panel2.Controls.Add(this.lbl_masraf_toplam);
             this.panel2.Controls.Add(this.lbl_davetli_sayisi);
@@ -589,6 +593,28 @@ namespace Dugun_Davetli_Masraf
             this.labelControl6.Size = new System.Drawing.Size(220, 35);
             this.labelControl6.TabIndex = 10;
             this.labelControl6.Text = "Toplam Bakiye";
+            // 
+            // labelControl7
+            // 
+            this.labelControl7.Appearance.BackColor = System.Drawing.Color.DarkRed;
+            this.labelControl7.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.labelControl7.Appearance.ForeColor = System.Drawing.Color.White;
+            this.labelControl7.Appearance.Options.UseBackColor = true;
+            this.labelControl7.Appearance.Options.UseFont = true;
+            this.labelControl7.Appearance.Options.UseForeColor = true;
+            this.labelControl7.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.labelControl7.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.labelControl7.Location = new System.Drawing.Point(1010, 6);
+            this.labelControl7.Name = "labelControl7";
+            this.labelControl7.Size = new System.Drawing.Size(220, 35);
+            this.labelControl7.TabIndex = 11;
+            this.labelControl7.Text = "Net";
+            // 
+            // xtraTabPage5
+            // 
+            this.xtraTabPage5.Name = "xtraTabPage5";
+            this.xtraTabPage5.Size = new System.Drawing.Size(602, 573);
+            this.xtraTabPage5.Text = "Bakiye Kaydet";
             // 
             // Form1
             // 
@@ -685,6 +711,8 @@ namespace Dugun_Davetli_Masraf
         private DevExpress.XtraEditors.TextEdit txt_mbilgi;
         private DevExpress.XtraEditors.TextEdit txt_mucret;
         private DevExpress.XtraEditors.LabelControl labelControl6;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage5;
+        private DevExpress.XtraEditors.LabelControl labelControl7;
     }
 }
 
